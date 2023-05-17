@@ -63,7 +63,7 @@ export class PostsService {
 
   getPostUpdateListener() {
     // Returning the "postsUpdated" subject as an observable
-  // This allows components to subscribe and receive updates when the posts are modified
+    // This allows components to subscribe and receive updates when the posts are modified
     return this.postsUpdated.asObservable();
   }
 

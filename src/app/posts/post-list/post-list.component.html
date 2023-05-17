@@ -1,34 +1,23 @@
-<!-- The multi property is used to allow multiple expansion panels to be open at the same time in the mat-accordion component -->
-<!-- The ngIf directive conditionally renders the mat-accordion element based on the length of the posts array in the associated TypeScript file -->
+<!--the mutli property helps us render the accordion so we can open more than one at a time-->
+<!--The ngIf directive is stating when to render the entire mat-accordion element based on value of posts array in TS file -->
 <mat-accordion multi="true" *ngIf="posts.length > 0">
-
-  <!-- The ngFor directive iterates over each element in the posts array and generates HTML based on the defined template -->
+<!--  The ngFor directive does create the HTML-Element it is placed in as many times as there are elements in the array.-->
   <mat-expansion-panel *ngFor="let post of posts">
     <mat-expansion-panel-header>
-      <!-- To display the title property of each post element, we use double curly braces {{}} and access the title property using the dot notation -->
+<!--  To render the title property of each "post" element from the posts array, use a double {{}} and put . property-->
       {{post.title}}
     </mat-expansion-panel-header>
     <div class="post-image">
-      <!-- The [src] and [alt] attributes are bound to the post's imagePath and title properties respectively, dynamically displaying the image and providing alternative text -->
       <img [src]="post.imagePath" [alt]="post.title">
     </div>
     <p>{{post.content}}</p>
-    <mat-action-row *ngIf="userIsAuthenticated && userId === post.creator">
-      <!-- The routerLink attribute sets the destination for the link, which is determined by the '/edit' route followed by the post's ID -->
+    <mat-action-row *ngIf = "userIsAuthenticated && userId == post.creator">
       <a mat-button color="primary" [routerLink]="['/edit', post.id]">edit</a>
-      <!-- The (click) event triggers the onDelete method with the post's ID as the argument when the button is clicked -->
       <button mat-button color="warn" (click)="onDelete(post.id)">delete</button>
     </mat-action-row>
   </mat-expansion-panel>
 </mat-accordion>
-
-<!-- The mat-paginator component displays pagination controls -->
-<!-- The [length], [pageSize], and [pageSizeOptions] attributes are bound to their respective variables in the TypeScript file -->
-<!-- The (page) event triggers the onChangedPage method with the emitted event as the argument -->
-<!-- The ngIf directive conditionally renders the mat-paginator element based on the length of the posts array -->
 <mat-paginator [length]="totalPosts" [pageSize]="postsPerPage" [pageSizeOptions]="pageSizeOptions" (page)="onChangedPage($event)" *ngIf="posts.length > 0"></mat-paginator>
-
-<!-- To apply Angular Material UI styling, we use the mat-body-1 class -->
-<!-- By adding more words to the class name, like info-text, we can avoid applying the CSS styles to more than one element -->
-<!-- The ngIf directive conditionally renders the paragraph element based on the length of the posts array -->
-<p class="info-text mat-body-1" *ngIf="posts.length <= 0">start posting on your bulletin board!</p>
+<!--to get Angular UI styling, use mat-body-1, and to avoid applying CSS to more than one tag, you add more words to beginning of class name like info-text-->
+<!--The ngIf is another directive that gives a condition on when we should render the following HTML element based on info from TS file-->
+<p class="info-text mat-body-1" *ngIf="posts.length<=0">start posting on your bulletin board!</p>

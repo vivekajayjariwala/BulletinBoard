@@ -1,12 +1,13 @@
 const mongoose = require('mongoose');
+// first create blueprint for how data should look like
 
-// Create a blueprint for how the data should be structured
+// use a javascript object for schema
 const postSchema = mongoose.Schema({
-  title: { type: String, required: true }, // The title field is of type String and is required
-  content: { type: String, required: true }, // The content field is of type String and is required
-  imagePath: { type: String, required: true }, // The imagePath field is of type String and is required
-  creator: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true } // The creator field is a reference to the User model and is required
+  title: {type: String, required: true}, // in node js/javascript its capitalized String, but typescript is string lowercase
+  content: {type: String, required: true},
+  imagePath: {type: String, required: true },
+  creator: {type: mongoose.Schema.Types.ObjectId, ref: "User",required: true}
 });
 
-// Export the model with the name 'Post'
-module.exports = mongoose.model('Post', postSchema);
+// model needs to start with capital letter
+module.exports = mongoose.model('Post', postSchema); // collection name is lowercase and plural: 'posts'

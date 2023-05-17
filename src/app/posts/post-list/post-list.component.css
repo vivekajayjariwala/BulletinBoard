@@ -1,23 +1,22 @@
-/*the ":host" selector is used to target the component itself, and the styles inside it are applied to the component's host element.*/
 :host {
-  display: block; /* Sets the element as a block-level element */
-  margin-top: 1rem; /* Adds top margin of 1rem to the element */
+  display: block;
+  margin-top: 1rem;
 }
 
 .info-text {
-  text-align: center; /* Aligns the text in the center of its container */
+  text-align: center;
 }
 
-.post-image {
-  width: 100%; /* Sets the width of the element to 100% of its container */
+.post-image{
+  width: 100%;
 }
 
 .post-image img {
-  width: 100%; /* Sets the width of the image element to 100% of its container */
-  border-radius: 10px; /* Applies a border radius of 10px to the corners of the image */
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5); /* Adds a box shadow effect to the image */
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px rgba(0,0,0, 0.5);
 }
 
 mat-paginator {
-  margin-top: 1rem; /* Adds top margin of 1rem to the mat-paginator element */
+  margin-top: 1rem;
 }
