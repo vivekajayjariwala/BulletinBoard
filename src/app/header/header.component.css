@@ -1,45 +1,44 @@
 a {
-  text-decoration: none;
-  color: white;
+  text-decoration: none; /* Remove underline from links */
+  color: white; /* Set link color to white */
 }
 
 ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  list-style: none; /* Remove bullet points from unordered lists */
+  padding: 0; /* Remove padding from the list */
+  margin: 0; /* Remove margin from the list */
 }
 
 .title-center {
-  display: inline-block;
-  color: white;
-  margin-right: 2rem
+  display: inline-block; /* Make the element inline */
+  color: white; /* Set text color to white */
+  margin-right: 2rem; /* Add right margin of 2rem */
 }
 
-.activeButton
-{
-  background: mediumpurple;
-  color: yellow;
+.activeButton {
+  background: mediumpurple; /* Set the background color to mediumpurple */
+  color: yellow; /* Set text color to yellow */
 }
 
 mat-toolbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: flex; /* Make the toolbar a flex container */
+  justify-content: space-between; /* Distribute items evenly along the horizontal axis */
+  align-items: center; /* Center items vertically */
 }
 
-
 mat-toolbar-row {
-  width: 100%;
+  width: 100%; /* Set the width of the toolbar row to 100% */
 }
 
 li {
-  display: inline;
-  float: right;
-  margin: 2rem;
+  display: inline; /* Make the list items inline */
+  float: right; /* Float the list items to the right */
+  margin: 2rem; /* Add margin of 2rem to the list items */
 }
-ul{
-  display: flex;
-  list-style: none;
-  padding: 0;
-  margin: 0;
+
+ul {
+  display: flex; /* Make the unordered list a flex container */
+  list-style: none; /* Remove bullet points from unordered lists */
+  padding: 0; /* Remove padding from the list */
+  margin: 0; /* Remove margin from the list */
 }

@@ -1,23 +1,21 @@
-<!--creates a text box with no rows-->
-<!--the square brackets on value wil now directly target the value property of underlying object, so if you put newPost, it will look for newPost in TS-->
-<!--The # post input creates a reference to that element to use-->
-<!--double event binding with ngModel, had to import Forms Module to use it, and now we can save the inputted information to enteredValue variable in TS file-->
-<!--for angular material, you have to add matinput and mat form field around the item that has mat input for it to appear properly-->
 <mat-card>
-  <form (submit)="onLogin(loginForm)" #loginForm="ngForm" >
+  <form (submit)="onLogin(loginForm)" #loginForm="ngForm">
+    <!-- Create a text input field for the email -->
     <mat-form-field>
-      <input matInput name="email" ngModel type="email" placeholder = "e-mail" #emailInput="ngModel" required email>
-      <mat-error  *ngIf="emailInput.invalid">please enter a valid email.</mat-error>
+      <input matInput name="email" ngModel type="email" placeholder="e-mail" #emailInput="ngModel" required email>
+      <!-- Display an error message if the email input is invalid -->
+      <mat-error *ngIf="emailInput.invalid">Please enter a valid email.</mat-error>
     </mat-form-field>
+    <!-- Create a text input field for the password -->
     <mat-form-field>
       <input type="password" name="password" ngModel matInput placeholder="password" #passwordInput="ngModel" required>
-      <mat-error  *ngIf="passwordInput.invalid">please enter a valid password.</mat-error>
+      <!-- Display an error message if the password input is invalid -->
+      <mat-error *ngIf="passwordInput.invalid">Please enter a valid password.</mat-error>
     </mat-form-field>
-    <!--save post button-->
-    <!--(click)="onAddPost()" is an example of event binding that links the default click event on this button to a function-->
+    <!-- Create a button to submit the login form -->
     <mat-card-actions>
-      <button mat-raised-button color="accent" type="submit">login</button>
+      <button mat-raised-button color="accent" type="submit">Login</button>
     </mat-card-actions>
   </form>
 </mat-card>
-<!--the double curly brackets is for string interpolation, and inside it we refer to something in the TS file (function or property)-->
+

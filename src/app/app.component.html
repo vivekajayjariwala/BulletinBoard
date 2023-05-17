@@ -1,7 +1,10 @@
+<!-- The <app-header> component is being included here.
+     This component represents the header section of the web page. -->
 <app-header></app-header>
 <main>
-  <!--  connect postCreated with onPostAdded, which is method from TS file-->
-  <!--  for the argument put "$event", which gives us access to the data i emitted, and same for custom, click, etc. type events-->
-  <!--  whatever you pass or receiving with event, you can access $event variable to your own method or in line code statement-->
+  <!-- The <main> tag is used to define the main content area of the web page.
+     Inside the <main> tag, there is a <router-outlet> element.
+     The <router-outlet> element is a placeholder where the content of the current route will be displayed dynamically.
+     It is part of the Angular Router module, and it allows us to navigate between different components based on the URL. -->
   <router-outlet></router-outlet>
 </main>

@@ -1,32 +1,37 @@
-<!--creates a text box with no rows-->
-<!--the square brackets on value wil now directly target the value property of underlying object, so if you put newPost, it will look for newPost in TS-->
-<!--The # post input creates a reference to that element to use-->
-<!--double event binding with ngModel, had to import Forms Module to use it, and now we can save the inputted information to enteredValue variable in TS file-->
-<!--for angular material, you have to add matinput and mat form field around the item that has mat input for it to appear properly-->
+<!-- The following HTML code represents a form for creating and saving a post. -->
 <mat-card>
   <form [formGroup]="form" (submit)="onSavePost()">
+    <!-- The mat-form-field element wraps the input element to apply Angular Material styling. -->
     <mat-form-field>
-      <input matInput type="text" formControlName="title" placeholder = "title">
-      <mat-error  *ngIf="form.get('title').invalid">please enter a post title.</mat-error>
+      <!-- The input element is of type "text" and is bound to the "title" form control using formControlName. -->
+      <input matInput type="text" formControlName="title" placeholder="Title">
+      <!-- The mat-error element is conditionally displayed if the "title" form control is invalid. -->
+      <mat-error *ngIf="form.get('title').invalid">Please enter a post title.</mat-error>
     </mat-form-field>
     <div>
       <mat-card-actions>
+        <!-- The button allows the user to pick an image. -->
         <button mat-stroked-button color="primary" type="button" (click)="filePicker.click()">Pick Image</button>
+        <!-- The hidden file input element is triggered by the button click and calls the onImagePicked function on change. -->
         <input type="file" #filePicker (change)="onImagePicked($event)">
       </mat-card-actions>
     </div>
+    <!-- The image preview is displayed if there is a valid image selected and the "image" form control is valid. -->
     <div class="image-preview" *ngIf="imagePreview !== '' && imagePreview && form.get('image').valid">
-      <img [src]="imagePreview" alt="form.value.title">
+      <!-- The image source is bound to the imagePreview property, and the alt attribute is set to the form value's title. -->
+      <img [src]="imagePreview" alt="{{ form.value.title }}">
     </div>
     <mat-form-field>
-      <textarea matInput rows="4" formControlName="content" placeholder="start writing here . . . "></textarea>
-      <mat-error  *ngIf="form.get('content').invalid">please enter content for the post.</mat-error>
+      <!-- The textarea element is bound to the "content" form control and allows the user to enter post content. -->
+      <textarea matInput rows="4" formControlName="content" placeholder="Start writing here..."></textarea>
+      <!-- The mat-error element is conditionally displayed if the "content" form control is invalid. -->
+      <mat-error *ngIf="form.get('content').invalid">Please enter content for the post.</mat-error>
     </mat-form-field>
-    <!--save post button-->
-    <!--(click)="onAddPost()" is an example of event binding that links the default click event on this button to a function-->
+    <!-- The save post button triggers the onSavePost function when clicked. -->
     <mat-card-actions>
-      <button mat-raised-button color="accent" type="submit">save post</button>
+      <button mat-raised-button color="accent" type="submit">Save Post</button>
     </mat-card-actions>
   </form>
 </mat-card>
-<!--the double curly brackets is for string interpolation, and inside it we refer to something in the TS file (function or property)-->
+
+<!-- The double curly brackets "{{}}" indicate string interpolation to display values from the TypeScript file. -->

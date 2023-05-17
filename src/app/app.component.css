@@ -1,5 +1,6 @@
-main {
-  width: 80%;
-  margin: 1rem auto;
+/* The following CSS code defines styles for the <main> element. */
 
+main {
+  width: 80%; /* Sets the width of the <main> element to 80% of its containing element. */
+  margin: 1rem auto; /* Sets the margin around the <main> element. The 'auto' value centers the element horizontally within its containing element, and the '1rem' value adds a margin of 1 unit of the font size (typically equivalent to 16 pixels) around the element. */
 }

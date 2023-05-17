@@ -1,22 +1,22 @@
-<mat-toolbar color = "primary" class="title-toolbar">
+<mat-toolbar color="primary" class="title-toolbar">
   <mat-toolbar-row>
-    <span class="title-center">bulletin board</span>
-    <ul>
+    <span class="title-center">bulletin board</span> <!-- Display the title "bulletin board" in the center -->
+    <ul> <!-- Start of the unordered list for navigation links -->
       <li>
-        <a mat-button routerLink="/explore" routerLinkActive="activeButton">explore</a>
-      </li>
-      <li  *ngIf="userIsAuthenticated">
-        <a mat-button routerLink="/create" routerLinkActive="activeButton">create</a>
-      </li>
-      <li  *ngIf="!userIsAuthenticated">
-        <a mat-button routerLink="/login" routerLinkActive="activeButton">login</a>
-      </li>
-      <li  *ngIf="!userIsAuthenticated">
-        <a mat-button routerLink="/signup" routerLinkActive="activeButton">signup</a>
+        <a mat-button routerLink="/explore" routerLinkActive="activeButton">explore</a> <!-- Navigation link for exploring the bulletin board -->
       </li>
       <li *ngIf="userIsAuthenticated">
-        <button mat-button (click)="onLogout()">logout</button>
+        <a mat-button routerLink="/create" routerLinkActive="activeButton">create</a> <!-- Navigation link for creating a new post (visible if user is authenticated) -->
       </li>
-    </ul>
+      <li *ngIf="!userIsAuthenticated">
+        <a mat-button routerLink="/login" routerLinkActive="activeButton">login</a> <!-- Navigation link for logging in (visible if user is not authenticated) -->
+      </li>
+      <li *ngIf="!userIsAuthenticated">
+        <a mat-button routerLink="/signup" routerLinkActive="activeButton">signup</a> <!-- Navigation link for signing up (visible if user is not authenticated) -->
+      </li>
+      <li *ngIf="userIsAuthenticated">
+        <button mat-button (click)="onLogout()">logout</button> <!-- Logout button (visible if user is authenticated) -->
+      </li>
+    </ul> <!-- End of the unordered list -->
   </mat-toolbar-row>
 </mat-toolbar>

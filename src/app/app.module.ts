@@ -1,3 +1,4 @@
+// Importing the necessary modules and libraries
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // import the component to reference in this file

@@ -1,24 +1,23 @@
 
 mat-form-field,
 textarea {
-  width: 100%;
-
+  width: 100%; /* Set the width of mat-form-field and textarea to 100% of their container */
 }
 
-button[type=button]{
-  margin-bottom: 1.5rem;
+button[type=button] {
+  margin-bottom: 1.5rem; /* Add a bottom margin of 1.5rem to buttons with type="button" */
 }
 
 input[type="file"] {
-  visibility: hidden;
+  visibility: hidden; /* Hide the input element with type="file" from the user */
 }
 
 .image-preview {
-  height: 15rem;
-  margin: 0rem 1rem 1.5rem 1rem;
+  height: 15rem; /* Set the height of elements with class "image-preview" to 15rem */
+  margin: 0rem 1rem 1.5rem 1rem; /* Set the margin around the image preview element */
 }
 
-.image-preview img{
-  height: 100%;
-  border-radius: 10px;
+.image-preview img {
+  height: 100%; /* Set the height of the image inside the image preview to 100% of its container */
+  border-radius: 10px; /* Add a border radius of 10px to the image */
 }

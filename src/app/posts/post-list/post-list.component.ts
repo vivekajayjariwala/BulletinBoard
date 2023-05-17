@@ -1,23 +1,22 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
-import {Subscription} from "rxjs";
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Post } from '../posts.model';
-import {PostsService} from "../posts.service";
-import {PageEvent} from "@angular/material/paginator";
-import {AuthService} from "../../auth/auth.service";
+import { PostsService } from '../posts.service';
+import { PageEvent } from '@angular/material/paginator';
+import { AuthService } from '../../auth/auth.service';
+
 @Component({
   selector: 'app-post-list',
   templateUrl: './post-list.component.html',
   styleUrls: ['./post-list.component.css']
 })
-
 export class PostListComponent implements OnInit, OnDestroy {
-  // make post property bindable via property binding using Input decorator
-  // you can now bind posts only from direct parent
+  // The @Input decorator allows the posts property to be bound via property binding, meaning it can receive data from its parent component
   posts: Post[] = [];
   totalPosts = 0;
   postsPerPage = 2;
   currentPage = 1;
-  pageSizeOptions = [1,2,5,10];
+  pageSizeOptions = [1, 2, 5, 10];
   userIsAuthenticated = false;
   userId: string;
   private postsSub: Subscription;
@@ -25,40 +24,40 @@ export class PostListComponent implements OnInit, OnDestroy {
 
   constructor(public postsService: PostsService, private authService: AuthService) {}
 
-
-  // ngOnInit will automatically execute so recommended to do initializations there
+  // The ngOnInit method is automatically executed when the component is initialized
   ngOnInit() {
-    this.postsService.getPosts(this.postsPerPage, this.currentPage);
-    this.userId = this.authService.getUserId();
-    this.postsSub = this.postsService.getPostUpdateListener().subscribe((postData: { posts: Post[], postCount: number }) => {
+    this.postsService.getPosts(this.postsPerPage, this.currentPage); // Fetches the initial posts
+    this.userId = this.authService.getUserId(); // Retrieves the current user's ID
+    // Subscribe to the post update listener to receive new posts and update the UI
+    this.postsSub = this.postsService.getPostUpdateListener().subscribe((postData: { posts: Post[]; postCount: number }) => {
       this.totalPosts = postData.postCount;
       this.posts = postData.posts;
     });
-    this.userIsAuthenticated = this.authService.getIsAuth();
-    // first argument is function executed whenever new data is submitted, second argument whenever error is emitted, third argument is whenever observable is completed but would also never happen
-    // only first argument which is when function receives any new values
+    this.userIsAuthenticated = this.authService.getIsAuth(); // Checks if the user is authenticated
+    // Subscribe to the authentication status listener to update the user's authentication status and ID
     this.authStatusSub = this.authService.getAuthStatusListener().subscribe(isAuthenticated => {
       this.userIsAuthenticated = isAuthenticated;
       this.userId = this.authService.getUserId();
-
     });
   }
 
-  onChangedPage(pageData: PageEvent){
-
-    this.currentPage = pageData.pageIndex + 1;
-    this.postsPerPage = pageData.pageSize;
-    this.postsService.getPosts(this.postsPerPage, this.currentPage)
+  // Called when the page is changed in the pagination control
+  onChangedPage(pageData: PageEvent) {
+    this.currentPage = pageData.pageIndex + 1; // Update the current page
+    this.postsPerPage = pageData.pageSize; // Update the number of posts per page
+    this.postsService.getPosts(this.postsPerPage, this.currentPage); // Fetch the posts for the new page
   }
 
+  // Called when a post is deleted
   onDelete(postId: string) {
-    this.postsService.deletePost(postId).subscribe(()=>{
-      this.postsService.getPosts(this.postsPerPage, this.currentPage);
+    this.postsService.deletePost(postId).subscribe(() => {
+      this.postsService.getPosts(this.postsPerPage, this.currentPage); // Fetch the updated posts after deletion
     });
   }
 
+  // The ngOnDestroy method is called when the component is about to be destroyed, and it is used to clean up resources
   ngOnDestroy() {
-    this.postsSub.unsubscribe();
-    this.authStatusSub.unsubscribe();
+    this.postsSub.unsubscribe(); // Unsubscribe from the post update listener
+    this.authStatusSub.unsubscribe(); // Unsubscribe from the authentication status listener
   }
 }

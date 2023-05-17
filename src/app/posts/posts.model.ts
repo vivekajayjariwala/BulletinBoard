@@ -1,11 +1,9 @@
-// interface that specifies the type of data in a Post object
-// serves as a type of blueprint as to what data we use in the posting operations
-// ensures that if we come back to this project later on or we are working on this as a team
-// an error is thrown if someone tries adding different data
+/* interface that specifies the type of data in a Post object, which serves as a blueprint as to what data we use in a post
+ensuring an error is thrown if different data is added */
 export interface Post {
-  id: string;
-  title: string;
-  content: string;
-  imagePath: string;
-  creator: string;
+  id: string; // Property to store the unique identifier of the post
+  title: string; // Property to store the title of the post
+  content: string; // Property to store the content/body of the post
+  imagePath: string; // Property to store the file path or URL of the post's image
+  creator: string; // Property to store the username or ID of the post's creator
 }

@@ -1,5 +1,5 @@
 mat-form-field,
 textarea {
-  width: 100%;
+  width: 100%;/* Set the width of mat-form-field and textarea elements to 100% */
 
 }
