@@ -1,0 +1,24 @@
+
+mat-form-field,
+textarea {
+  width: 100%;
+
+}
+
+button[type=button]{
+  margin-bottom: 1.5rem;
+}
+
+input[type="file"] {
+  visibility: hidden;
+}
+
+.image-preview {
+  height: 15rem;
+  margin: 0rem 1rem 1.5rem 1rem;
+}
+
+.image-preview img{
+  height: 100%;
+  border-radius: 10px;
+}
