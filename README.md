@@ -6,7 +6,7 @@ After signing up for an account, users can log into the service and click the cr
 
 If users are not logged in, they can simply view the current posts made on the platform. 
 
-The inspiration for creating this project came from talking with one of my colleagues in university who studies Art History. They wanted a tool that could help them and their friends track their ideas and the pieces they wanted to discuss during the brainstorming session for an essay. 
+The inspiration for creating this project came from talking with one of my colleagues in university who studies Art History. They wanted a tool that could help them track their ideas and the pieces they wanted to discuss during the brainstorming session for an essay. 
 
 Access the demo video of the application by clicking on this link: https://youtu.be/N1UzDbpYp6c
 
